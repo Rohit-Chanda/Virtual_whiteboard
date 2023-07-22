@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Virtual Whiteboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="whiteboard">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="toolbar">
+    <div class="toolbar-item">
+      <div class="tool-dropdown">
+        <div class="tool-button" onclick="toggleBrushPopup()">Brushes</div>
+        <div class="tool-popup" id="brushPopup">
+          <div onclick="selectTool('pencil')">Pencil</div>
+          <div onclick="selectTool('brush')">Brush</div>
+          <div onclick="selectTool('highlighter')">Highlighter</div>
+          <div onclick="selectTool('watercolor')">Watercolor</div>
+          <div onclick="selectTool('chalk')">Chalk</div>
+        </div>
+      </div>
+      <div class="tool-button" id="eraserBtn" onclick="selectTool('eraser')">Eraser</div>
+      <input type="color" id="colorPicker" class="color-picker" onchange="updateColor()">
+    </div>
+    <div class="toolbar-item">
+      <div class="tool-buttons">
+        <div class="tool-button" id="decreaseSize" onclick="decreaseSize()">-</div>
+        <div class="tool-button" id="increaseSize" onclick="increaseSize()">+</div>
+      </div>
+    </div>
+    <div class="toolbar-item">
+      <div class="tool-buttons">
+        <div class="tool-button" onclick="clearCanvas()">Clear</div>
+        <div class="tool-button" onclick="saveCanvas()">Save</div>
+        <div class="edit-dropdown">
+          <div class="tool-button" onclick="toggleEditPopup()">Edit</div>
+          <div class="edit-popup" id="editPopup">
+            <div onclick="undo()">Undo</div>
+            <div onclick="redo()">Redo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="canvas.js"></script>  
+</body>
+</html>
